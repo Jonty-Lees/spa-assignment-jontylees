@@ -6,13 +6,18 @@ const StarRating = () => {
 
   return (
     <div>
-      {[...Array(5)].map((starValue, i) => {
+      {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 
         return (
           <label>
-            <input type="radio" className="starRadio" value={ratingValue} />
-            <FaStar className="star" />
+            <input
+              type="radio"
+              className="starRadio"
+              value={ratingValue}
+              onClick={() => setRating(ratingValue)}
+            />
+            <FaStar className="star" size={15} />
           </label>
         );
       })}
