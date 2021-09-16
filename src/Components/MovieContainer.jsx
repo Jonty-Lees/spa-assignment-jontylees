@@ -1,4 +1,5 @@
 import React from "react";
+import { FaStar } from "react-icons/fa";
 
 function MovieContainer(props) {
   function handleDelete() {
@@ -8,6 +9,8 @@ function MovieContainer(props) {
   function checkBoxChange() {
     props.onWatched(props.id);
   }
+
+  const StarRating = () => {};
 
   return (
     <div className="movieContainer">
@@ -21,11 +24,21 @@ function MovieContainer(props) {
         <input type="checkbox" className="checkbox" onChange={checkBoxChange} />
       </button>
 
+      <div>
+        {[...Array(5)].map((star) => {
+          return (
+            <label>
+              <input type="radio" className="starRadio" />
+              <FaStar className="StarRating" />
+            </label>
+          );
+        })}
+      </div>
+
       <div></div>
       <button className="button-delete" onClick={handleDelete}>
         Delete
       </button>
-      <button className="button-edit">Edit</button>
     </div>
   );
 }
