@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+import uuid from "react-uuid";
 
 function AddMovie(props) {
   const [movie, setMovie] = useState({
     title: "",
-    completed: false
+    completed: false,
+    id: uuid()
   });
 
   function submitMovie(e) {
     props.onAdd(movie);
     setMovie({
       title: "",
-      completed: false
+      completed: false,
+      id: uuid()
     });
     e.preventDefault();
   }

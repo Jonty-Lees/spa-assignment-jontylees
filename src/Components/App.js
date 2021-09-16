@@ -19,7 +19,7 @@ export default function App() {
   function deleteMovie(id) {
     setMovie((previousMovies) => {
       return previousMovies.filter((movieItem, index) => {
-        return index !== id;
+        return movieItem.id !== id;
       });
     });
   }
@@ -30,7 +30,7 @@ export default function App() {
 
   function watchedComplete(id) {
     const updatedList = [...movie].map((movieItem, index) => {
-      if (id === index) {
+      if (id === movieItem.id) {
         movieItem.completed = !movieItem.completed;
       }
       return movieItem;
@@ -46,6 +46,8 @@ export default function App() {
     });
   }
 
+  const ID = uuid();
+
   return (
     <div className="App">
       <Header />
@@ -53,8 +55,8 @@ export default function App() {
       {movie.map((movieItem, index) => {
         return (
           <MovieContainer
-            key={index}
-            id={index}
+            key={movieItem.id}
+            id={movieItem.id}
             title={movieItem.title}
             onDelete={deleteMovie}
             onWatched={watchedComplete}
@@ -62,11 +64,11 @@ export default function App() {
           />
         );
       })}
-      {movie.map((index) => {
+      {movie.map((movieItem) => {
         return (
           <Buttons
-            key={index}
-            id={index}
+            key={movieItem.id}
+            id={ID}
             onDeleteAll={deleteAllMovies}
             onDeleteWatched={deleteWatchedMovies}
           />
