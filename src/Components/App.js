@@ -9,6 +9,10 @@ import uuid from "react-uuid";
 
 export default function App() {
   const [movie, setMovie] = useState([]);
+  const [movieEditing, setMovieEditing] = useState(null);
+  const [titleEditing, setTitleEditing] = useState("");
+
+  const ID = uuid();
 
   function addMovies(newMovie) {
     setMovie((previousMovies) => {
@@ -46,7 +50,9 @@ export default function App() {
     });
   }
 
-  const ID = uuid();
+  function editTitle(id) {}
+
+  function editingText() {}
 
   return (
     <div className="App">
@@ -60,6 +66,8 @@ export default function App() {
             title={movieItem.title}
             onDelete={deleteMovie}
             onWatched={watchedComplete}
+            onEdit={editTitle}
+            editText={editingText}
             completed={movieItem.completed}
           />
         );
