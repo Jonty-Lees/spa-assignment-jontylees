@@ -5,7 +5,7 @@ function AddMovie(props) {
   const [movie, setMovie] = useState({
     name: "",
     watched: false,
-    img: "",
+    bannerUrl: "",
     id: uuid()
   });
 
@@ -14,6 +14,7 @@ function AddMovie(props) {
     setMovie({
       name: "",
       watched: false,
+      bannerUrl: "",
       id: uuid()
     });
     e.preventDefault();
@@ -33,6 +34,7 @@ function AddMovie(props) {
           name="name"
           value={movie.name}
           watched={movie.watched}
+          bannerUrl={movie.bannerUrl}
           onChange={handleChange}
           placeholder="Add To Watch List..."
         />

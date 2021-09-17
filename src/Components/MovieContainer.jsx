@@ -16,7 +16,7 @@ function MovieContainer(props) {
 
   return (
     <div className="movieContainer">
-      <img src="" alt="" />
+      <img src={props.img} alt={`the movie poster of ${props.name}`} />
 
       <h2>{props.name}</h2>
       <button className="button-watched">

@@ -98,6 +98,7 @@ export default function App() {
               key={movieItem.id}
               id={movieItem.id}
               name={movieItem.name}
+              img={movieItem.bannerUrl}
               onDelete={deleteMovie}
               onWatched={watchedComplete}
               watched={movieItem.watched}
