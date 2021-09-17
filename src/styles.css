@@ -105,8 +105,8 @@ footer {
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
   padding-bottom: 10px;
-  width: 240px;
-
+  max-width: 170px;
+  min-width: 170px;
   margin: 100px 16px 16px 16px;
   float: left;
   text-align: center;
