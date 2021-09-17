@@ -3,16 +3,17 @@ import uuid from "react-uuid";
 
 function AddMovie(props) {
   const [movie, setMovie] = useState({
-    title: "",
-    completed: false,
+    name: "",
+    watched: false,
+    img: "",
     id: uuid()
   });
 
   function submitMovie(e) {
     props.onAdd(movie);
     setMovie({
-      title: "",
-      completed: false,
+      name: "",
+      watched: false,
       id: uuid()
     });
     e.preventDefault();
@@ -29,9 +30,9 @@ function AddMovie(props) {
     <div>
       <form>
         <input
-          name="title"
-          value={movie.title}
-          completed={movie.completed}
+          name="name"
+          value={movie.name}
+          watched={movie.watched}
           onChange={handleChange}
           placeholder="Add To Watch List..."
         />

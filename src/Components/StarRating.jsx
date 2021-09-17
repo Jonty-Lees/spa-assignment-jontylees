@@ -6,12 +6,12 @@ const StarRating = () => {
   const [hover, setHover] = useState(null);
 
   return (
-    <div>
+    <div className="starRatingContainer">
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 
         return (
-          <label>
+          <label className="starRatingContainer">
             <input
               type="radio"
               className="starRadio"

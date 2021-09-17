@@ -110,6 +110,11 @@ footer {
   float: left;
   text-align: center;
 }
+.movieContainerBox {
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
 
 .movieContainer button,
 .movieContainer h2,
@@ -187,4 +192,11 @@ footer {
 
 .starRadio {
   display: none;
+  background-color: #fff;
+}
+.star {
+  background-color: #fff;
+}
+.starRatingContainer {
+  background-color: #fff;
 }
