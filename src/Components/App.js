@@ -12,16 +12,16 @@ import uuid from "react-uuid";
 export default function App() {
   const [movie, setMovie] = useState([]);
 
-  useEffect(() => {
-    const data = localStorage.getItem("tasty-tv-app-list");
-    if (data) {
-      setMovie(JSON.parse(data));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const data = localStorage.getItem("tasty-tv-app-list");
+  //   if (data) {
+  //     setMovie(JSON.parse(data));
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem("tasty-tv-app-list", JSON.stringify(movie));
-  });
+  // useEffect(() => {
+  //   localStorage.setItem("tasty-tv-app-list", JSON.stringify(movie));
+  // });
 
   const clientAPI = async () => {
     const url = "https://hub.dummyapis.com/vj/wzGUkpZ";
