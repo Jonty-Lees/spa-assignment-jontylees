@@ -9,7 +9,6 @@ import uuid from "react-uuid";
 
 export default function App() {
   const [movie, setMovie] = useState([]);
-  const [rating, setRating] = useState(null);
 
   const ID = uuid();
 
