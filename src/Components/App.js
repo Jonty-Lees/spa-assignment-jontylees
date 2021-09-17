@@ -10,32 +10,20 @@ import Buttons from "./Buttons";
 import uuid from "react-uuid";
 
 export default function App() {
-  const [movie, setMovie] = useState([
-    {
-      id: 990,
-      name: "Easter",
-      releasedOn: "16/08/2047",
-      watched: false,
-      bannerUrl:
-        "https://hub.dummyapis.com/Image?text=Item&height=120&width=120"
-    },
-    {
-      id: 856,
-      name: "Hope",
-      releasedOn: "30/04/2035",
-      watched: false,
-      bannerUrl:
-        "https://hub.dummyapis.com/Image?text=Item&height=120&width=120"
-    },
-    {
-      id: 768,
-      name: "Violet",
-      releasedOn: "10/02/2048",
-      watched: false,
-      bannerUrl:
-        "https://hub.dummyapis.com/Image?text=Item&height=120&width=120"
-    }
-  ]);
+  const [movie, setMovie] = useState([]);
+
+  const clientAPI = async () => {
+    const url = "https://hub.dummyapis.com/vj/wzGUkpZ";
+
+    const response = await fetch(url);
+    const responseJson = await response.json();
+    console.log(responseJson);
+    setMovie(responseJson);
+  };
+
+  useEffect(() => {
+    clientAPI();
+  }, []);
 
   const ID = uuid();
 
@@ -46,10 +34,6 @@ export default function App() {
     }
     initialList();
   }, []);
-
-  function initialAPI() {
-    return null;
-  }
 
   function addMovies(newMovie) {
     setMovie((previousMovies) => {
@@ -87,12 +71,24 @@ export default function App() {
     });
   }
 
+  function imgChoice() {
+    setMovie((previousMovie) => {
+      return previousMovie.filter((movieItem, index) => {
+        if (movieItem.bannerUrl !== undefined) {
+          return movieItem.bannerUrl;
+        } else {
+          return { display: null };
+        }
+      });
+    });
+  }
+
   return (
     <div className="App">
       <Header />
       <AddMovie onAdd={addMovies} />
       <div className="movieContainerBox">
-        {movie.map((movieItem, index) => {
+        {movie.map((movieItem) => {
           return (
             <MovieContainer
               key={movieItem.id}

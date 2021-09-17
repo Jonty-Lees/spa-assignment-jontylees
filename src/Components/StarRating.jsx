@@ -28,7 +28,7 @@ const StarRating = () => {
           </label>
         );
       })}
-      <p>You Rated This: {rating}</p>
+      <p>Your Rating: {rating}</p>
     </div>
   );
 };
