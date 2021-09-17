@@ -188,3 +188,14 @@ footer {
 .starRadio {
   display: none;
 }
+
+.starsContainer {
+  background-color: transparent;
+  margin: 10px 0 15px 0;
+}
+.starLabel {
+  background-color: transparent;
+}
+.star {
+  background-color: transparent;
+}
