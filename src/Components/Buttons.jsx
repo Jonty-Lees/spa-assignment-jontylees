@@ -14,11 +14,11 @@ function Buttons(props) {
       <p>
         <button className="EditOrderButton">Edit Order</button>
       </p>
-      <button className="DeleteAllButton" onClick={handleDeleteAll}>
-        Delete All
-      </button>
       <button className="DeleteWatchedButton" onClick={handleDeleteWatched}>
         Delete Watched
+      </button>
+      <button className="DeleteAllButton" onClick={handleDeleteAll}>
+        Delete All
       </button>
     </div>
   );

@@ -34,7 +34,6 @@ function AddMovie(props) {
           name="name"
           value={movie.name}
           watched={movie.watched}
-          bannerUrl={movie.bannerUrl}
           onChange={handleChange}
           placeholder="Add To Watch List..."
         />

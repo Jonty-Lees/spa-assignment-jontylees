@@ -106,7 +106,8 @@ footer {
   padding: 10px;
   padding-bottom: 10px;
   width: 240px;
-  margin: 16px;
+
+  margin: 100px 16px 16px 16px;
   float: left;
   text-align: center;
 }
@@ -145,12 +146,6 @@ footer {
 .button-delete {
   margin-bottom: 10px;
 }
-/* 
-<div className="page-buttons">
-<button className="EditOrderButton">Edit Order</button>
-<button className="DeleteAllButton">Delete All</button>
-<button className="DeleteWatchedButton">Delete Watched</button>
-</div> */
 
 .page-buttons {
   position: absolute;
@@ -178,6 +173,7 @@ footer {
   background-color: rgb(7, 158, 163);
   transition: all 0.5s ease;
   margin: 10px 0px;
+  display: none;
 }
 .DeleteAllButton,
 .DeleteWatchedButton {
@@ -188,6 +184,8 @@ footer {
   border-radius: 35px;
   background-color: rgb(7, 158, 163);
   transition: all 0.5s ease;
+  position: relative;
+  bottom: 70px;
 }
 
 .starRadio {

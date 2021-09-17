@@ -12,6 +12,17 @@ import uuid from "react-uuid";
 export default function App() {
   const [movie, setMovie] = useState([]);
 
+  useEffect(() => {
+    const data = localStorage.getItem("tasty-tv-app-list");
+    if (data) {
+      setMovie(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasty-tv-app-list", JSON.stringify(movie));
+  });
+
   const clientAPI = async () => {
     const url = "https://hub.dummyapis.com/vj/wzGUkpZ";
 
@@ -20,10 +31,6 @@ export default function App() {
     console.log(responseJson);
     setMovie(responseJson);
   };
-
-  useEffect(() => {
-    clientAPI();
-  }, []);
 
   const ID = uuid();
 
@@ -71,9 +78,9 @@ export default function App() {
     });
   }
 
-  function imgChoice() {
+  function imgChoice(id) {
     setMovie((previousMovie) => {
-      return previousMovie.filter((movieItem, index) => {
+      return previousMovie.map((movieItem, index) => {
         if (movieItem.bannerUrl !== undefined) {
           return movieItem.bannerUrl;
         } else {
@@ -82,6 +89,8 @@ export default function App() {
       });
     });
   }
+
+  const saveToStorage = (items) => {};
 
   return (
     <div className="App">
