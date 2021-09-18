@@ -10,29 +10,23 @@ import Buttons from "./Buttons";
 import uuid from "react-uuid";
 
 export default function App() {
-  const [movie, setMovie] = useState([
-    {
-      id: 269,
-      name: "Sarai",
-      releasedOn: "20/05/2051",
-      watched: false,
-      bannerUrl:
-        "https://hub.dummyapis.com/Image?text=Item&height=120&width=120"
+  const [movie, setMovie] = useState([]);
+
+  // ONLY UNCOMMENT BELOW LINE IF YOU WANT TO RESET THE LOCALSTORAGE (ONLY USED FOR TEST)
+  // localStorage.removeItem("tasty-tv-app");
+
+  useEffect(() => {
+    const data = localStorage.getItem("tasty-tv-app");
+    if (data) {
+      setMovie(JSON.parse(data));
+    } else {
+      clientAPI();
     }
-  ]);
+  }, []);
 
-  // localStorage.removeItem("tasty-tv-app-list");
-
-  // useEffect(() => {
-  //   const data = localStorage.getItem("tasty-tv-app-list");
-  //   if (data) {
-  //     setMovie(JSON.parse(data));
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("tasty-tv-app-list", JSON.stringify(movie));
-  // });
+  useEffect(() => {
+    localStorage.setItem("tasty-tv-app", JSON.stringify(movie));
+  });
 
   const clientAPI = async () => {
     const url = "https://hub.dummyapis.com/vj/wzGUkpZ";
@@ -42,10 +36,6 @@ export default function App() {
     console.log(responseJson);
     setMovie(responseJson);
   };
-
-  useEffect(() => {
-    clientAPI();
-  }, []);
 
   const ID = uuid();
 
