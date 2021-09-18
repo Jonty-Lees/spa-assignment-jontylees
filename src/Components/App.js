@@ -18,19 +18,17 @@ export default function App() {
   console.log(favMovie);
 
   // ONLY UNCOMMENT BELOW LINE IF YOU WANT TO RESET THE LOCALSTORAGE (ONLY USED FOR TEST)
-  localStorage.removeItem("tasty-tv-app");
+  // localStorage.removeItem("tasty-tv-app");
 
   useEffect(() => {
     const data = localStorage.getItem("tasty-tv-app");
     if (data) {
-      setMovie(JSON.parse(data));
-    } else {
-      clientAPI();
+      setFavMovie(JSON.parse(data));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("tasty-tv-app", JSON.stringify(movie));
+    localStorage.setItem("tasty-tv-app", JSON.stringify(favMovie));
   });
 
   const clientAPI = async () => {
@@ -41,6 +39,10 @@ export default function App() {
     console.log(responseJson);
     setMovie(responseJson);
   };
+
+  useEffect(() => {
+    clientAPI();
+  }, []);
 
   const ID = uuid();
 
