@@ -10,7 +10,18 @@ import Buttons from "./Buttons";
 import uuid from "react-uuid";
 
 export default function App() {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState([
+    {
+      id: 269,
+      name: "Sarai",
+      releasedOn: "20/05/2051",
+      watched: false,
+      bannerUrl:
+        "https://hub.dummyapis.com/Image?text=Item&height=120&width=120"
+    }
+  ]);
+
+  // localStorage.removeItem("tasty-tv-app-list");
 
   // useEffect(() => {
   //   const data = localStorage.getItem("tasty-tv-app-list");
@@ -32,15 +43,11 @@ export default function App() {
     setMovie(responseJson);
   };
 
-  const ID = uuid();
-
   useEffect(() => {
-    async function initialList() {
-      const res = await axios.get(`https://hub.dummyapis.com/vj/wzGUkpZ`);
-      console.log(res.data);
-    }
-    initialList();
+    clientAPI();
   }, []);
+
+  const ID = uuid();
 
   function addMovies(newMovie) {
     setMovie((previousMovies) => {
@@ -78,26 +85,24 @@ export default function App() {
     });
   }
 
-  function imgChoice(id) {
-    setMovie((previousMovie) => {
-      return previousMovie.map((movieItem, index) => {
-        if (movieItem.bannerUrl !== undefined) {
-          return movieItem.bannerUrl;
-        } else {
-          return { display: null };
-        }
-      });
-    });
-  }
-
-  const saveToStorage = (items) => {};
+  // function imgChoice(id) {
+  //   setMovie((previousMovie) => {
+  //     return previousMovie.map((movieItem, index) => {
+  //       if (movieItem.bannerUrl !== undefined) {
+  //         return movieItem.bannerUrl;
+  //       } else {
+  //         return { display: null };
+  //       }
+  //     });
+  //   });
+  // }
 
   return (
     <div className="App">
       <Header />
       <AddMovie onAdd={addMovies} />
       <div className="movieContainerBox">
-        {movie.map((movieItem) => {
+        {movie.map((movieItem, index) => {
           return (
             <MovieContainer
               key={movieItem.id}
@@ -108,6 +113,7 @@ export default function App() {
               onWatched={watchedComplete}
               watched={movieItem.watched}
               onKeyID={movieItem.id}
+              rating={movieItem.rating}
             />
           );
         })}

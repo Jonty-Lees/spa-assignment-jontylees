@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const StarRating = () => {
-  const [rating, setRating] = useState(null);
+const StarRating = (props) => {
+  // const [rating, setRating] = useState(null);
+  const [movie, setMovie] = useState({
+    rating: ""
+  });
   const [hover, setHover] = useState(null);
 
   return (
@@ -16,19 +19,20 @@ const StarRating = () => {
               type="radio"
               className="starRadio"
               value={ratingValue}
-              onClick={() => setRating(ratingValue)}
+              // I Think this needs to go back to app and then render a function that sets to state
+              onClick={() => setMovie(ratingValue)}
             />
             <FaStar
               className="star"
               size={15}
-              color={ratingValue <= (hover || rating) ? "#079ea3" : "#8a8989"}
+              color={ratingValue <= (hover || movie) ? "#079ea3" : "#8a8989"}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)}
             />
           </label>
         );
       })}
-      <p>Your Rating: {rating}</p>
+      <p>Your Rating: {movie.rating}</p>
     </div>
   );
 };

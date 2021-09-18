@@ -23,7 +23,7 @@ function MovieContainer(props) {
         Watched
         <input type="checkbox" className="checkbox" onChange={checkBoxChange} />
       </button>
-      <StarRating key={keyId} />
+      <StarRating />
       <div></div>
       <button className="button-delete" onClick={handleDelete}>
         Delete
