@@ -14,6 +14,9 @@ export default function App() {
   const [movie, setMovie] = useState([]);
   const [favMovie, setFavMovie] = useState([]);
 
+  console.log(movie);
+  console.log(favMovie);
+
   // ONLY UNCOMMENT BELOW LINE IF YOU WANT TO RESET THE LOCALSTORAGE (ONLY USED FOR TEST)
   localStorage.removeItem("tasty-tv-app");
 
@@ -82,29 +85,18 @@ export default function App() {
     });
   }
 
-  // function setRating(id) {
-  //   const updatedList = [...movie].map((movieItem, index) => {
-  //     if (id === movieItem.id) {
-  //       onRating(movieItem.rating);
-  //     }
-  //     return movieItem;
-  //   });
-  //   setMovie(updatedList);
-  // }
-
-  // function imgChoice(id) {
-  //   setMovie((previousMovie) => {
-  //     return previousMovie.map((movieItem, index) => {
-  //       if (movieItem.bannerUrl !== undefined) {
-  //         return movieItem.bannerUrl;
-  //       } else {
-  //         return { display: null };
+  // useEffect(
+  //   (props) => {
+  //     const updatedList = [...movies].map((favMovieItem) => {
+  //       if (id === favMovieItem.id) {
+  //         return movie.id !== id;
   //       }
+  //       return updatedList;
   //     });
-  //   });
-  // }
-  // Try useEffect to show movieItem.bannerUrl unless 'undefined', then call either api or random picture
-  useEffect(() => {}, []);
+  //     setMovie(updatedList);
+  //   },
+  //   [addFavMovie]
+  // );
 
   return (
     <div className="App">
@@ -134,7 +126,7 @@ export default function App() {
               key={favMovieItem.id}
               id={favMovieItem.id}
               name={favMovieItem.name}
-              img={favMovieItem.bannerUrl}
+              img={favMovieItem.img}
               onDelete={deleteMovie}
               onWatched={watchedComplete}
               watched={favMovieItem.watched}

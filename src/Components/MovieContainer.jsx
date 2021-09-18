@@ -1,12 +1,8 @@
 import React from "react";
 
 function MovieContainer(props) {
-  // function keyId() {
-  //   props.onKeyID(props.id);
-  // }
-
   function handleFavourites() {
-    props.onFavourite(props.id);
+    props.onFavourite(props);
   }
 
   return (
