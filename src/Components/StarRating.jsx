@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 const StarRating = (props) => {
-  const [movie, setMovie] = useState({
-    rating: ""
-  });
+  const [movie, setMovie] = useState({});
   const [hover, setHover] = useState(null);
 
   return (
@@ -31,7 +29,7 @@ const StarRating = (props) => {
           </label>
         );
       })}
-      <p>Your Rating: {movie.rating}</p>
+      {/* <p>Your Rating: {movie.rating}</p> */}
     </div>
   );
 };

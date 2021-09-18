@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import "../styles.css";
 import AddMovie from "./AddMovie";
 import MovieContainer from "./MovieContainer";
+import WatchLaterContainer from "./WatchLaterContainer";
 import Header from "./Header";
 import Footer from "./Footer";
 import Buttons from "./Buttons";
@@ -11,9 +12,10 @@ import uuid from "react-uuid";
 
 export default function App() {
   const [movie, setMovie] = useState([]);
+  const [favMovie, setFavMovie] = useState([]);
 
   // ONLY UNCOMMENT BELOW LINE IF YOU WANT TO RESET THE LOCALSTORAGE (ONLY USED FOR TEST)
-  // localStorage.removeItem("tasty-tv-app");
+  localStorage.removeItem("tasty-tv-app");
 
   useEffect(() => {
     const data = localStorage.getItem("tasty-tv-app");
@@ -45,32 +47,37 @@ export default function App() {
     });
   }
 
+  const addFavMovie = (movie) => {
+    const favouriteList = [...favMovie, movie];
+    setFavMovie(favouriteList);
+  };
+
   function deleteMovie(id) {
-    setMovie((previousMovies) => {
-      return previousMovies.filter((movieItem, index) => {
-        return movieItem.id !== id;
+    setFavMovie((previousMovies) => {
+      return previousMovies.filter((favMovieItem, index) => {
+        return favMovieItem.id !== id;
       });
     });
   }
 
   function deleteAllMovies() {
-    setMovie([]);
+    setFavMovie([]);
   }
 
   function watchedComplete(id) {
-    const updatedList = [...movie].map((movieItem, index) => {
-      if (id === movieItem.id) {
-        movieItem.watched = !movieItem.watched;
+    const updatedList = [...movie].map((favMovieItem, index) => {
+      if (id === favMovieItem.id) {
+        favMovieItem.watched = !favMovieItem.watched;
       }
-      return movieItem;
+      return favMovieItem;
     });
-    setMovie(updatedList);
+    setFavMovie(updatedList);
   }
 
   function deleteWatchedMovies(id) {
-    setMovie((previousMovies) => {
-      return previousMovies.filter((movieItem, index) => {
-        if (movieItem.watched === false) return index !== id;
+    setFavMovie((previousMovies) => {
+      return previousMovies.filter((favMovieItem, index) => {
+        if (favMovieItem.watched === false) return index !== id;
       });
     });
   }
@@ -112,10 +119,8 @@ export default function App() {
               id={movieItem.id}
               name={movieItem.name}
               img={movieItem.bannerUrl}
-              onDelete={deleteMovie}
-              onWatched={watchedComplete}
-              watched={movieItem.watched}
               onKeyID={movieItem.id}
+              onFavourite={addFavMovie}
               // onRating={setRating}
             />
           );
@@ -123,17 +128,17 @@ export default function App() {
       </div>
       <h2>Your Watch Later List</h2>
       <div className="movieContainerBox">
-        {movie.map((movieItem, index) => {
+        {favMovie.map((favMovieItem, index) => {
           return (
-            <MovieContainer
-              key={movieItem.id}
-              id={movieItem.id}
-              name={movieItem.name}
-              img={movieItem.bannerUrl}
+            <WatchLaterContainer
+              key={favMovieItem.id}
+              id={favMovieItem.id}
+              name={favMovieItem.name}
+              img={favMovieItem.bannerUrl}
               onDelete={deleteMovie}
               onWatched={watchedComplete}
-              watched={movieItem.watched}
-              onKeyID={movieItem.id}
+              watched={favMovieItem.watched}
+              onKeyID={favMovieItem.id}
               // onRating={setRating}
             />
           );
