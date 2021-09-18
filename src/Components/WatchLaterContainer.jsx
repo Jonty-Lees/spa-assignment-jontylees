@@ -10,10 +10,6 @@ function WatchLaterContainer(props) {
     props.onWatched(props.id);
   }
 
-  // function keyId() {
-  //   props.onKeyID(props.id);
-  // }
-
   return (
     <div className="movieContainer">
       <img src={props.img} alt={`the movie poster of ${props.name}`} />
