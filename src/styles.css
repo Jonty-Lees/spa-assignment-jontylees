@@ -107,9 +107,16 @@ footer {
   padding-bottom: 10px;
   max-width: 170px;
   min-width: 170px;
-  margin: 100px 16px 16px 16px;
+
+  margin: 16px 16px 16px 16px;
   float: left;
   text-align: center;
+}
+.searchContainerBox {
+  display: flex;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
 }
 .movieContainerBox {
   display: flex;
@@ -185,7 +192,7 @@ footer {
   background-color: rgb(7, 158, 163);
   transition: all 0.5s ease;
   position: relative;
-  bottom: 70px;
+  bottom: -80px;
 }
 
 .starRadio {

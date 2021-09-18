@@ -75,6 +75,16 @@ export default function App() {
     });
   }
 
+  // function setRating(id) {
+  //   const updatedList = [...movie].map((movieItem, index) => {
+  //     if (id === movieItem.id) {
+  //       onRating(movieItem.rating);
+  //     }
+  //     return movieItem;
+  //   });
+  //   setMovie(updatedList);
+  // }
+
   // function imgChoice(id) {
   //   setMovie((previousMovie) => {
   //     return previousMovie.map((movieItem, index) => {
@@ -86,11 +96,14 @@ export default function App() {
   //     });
   //   });
   // }
+  // Try useEffect to show movieItem.bannerUrl unless 'undefined', then call either api or random picture
+  useEffect(() => {}, []);
 
   return (
     <div className="App">
       <Header />
       <AddMovie onAdd={addMovies} />
+      <h2>Search Here</h2>
       <div className="movieContainerBox">
         {movie.map((movieItem, index) => {
           return (
@@ -103,7 +116,25 @@ export default function App() {
               onWatched={watchedComplete}
               watched={movieItem.watched}
               onKeyID={movieItem.id}
-              rating={movieItem.rating}
+              // onRating={setRating}
+            />
+          );
+        })}
+      </div>
+      <h2>Your Watch Later List</h2>
+      <div className="movieContainerBox">
+        {movie.map((movieItem, index) => {
+          return (
+            <MovieContainer
+              key={movieItem.id}
+              id={movieItem.id}
+              name={movieItem.name}
+              img={movieItem.bannerUrl}
+              onDelete={deleteMovie}
+              onWatched={watchedComplete}
+              watched={movieItem.watched}
+              onKeyID={movieItem.id}
+              // onRating={setRating}
             />
           );
         })}

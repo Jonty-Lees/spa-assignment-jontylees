@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
 const StarRating = (props) => {
-  // const [rating, setRating] = useState(null);
   const [movie, setMovie] = useState({
     rating: ""
   });

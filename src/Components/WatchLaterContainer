@@ -1,7 +1,7 @@
 import React from "react";
 import StarRating from "./StarRating";
 
-function MovieContainer(props) {
+function WatchLaterContainer(props) {
   function handleDelete() {
     props.onDelete(props.id);
   }
@@ -32,6 +32,6 @@ function MovieContainer(props) {
   );
 }
 
-export default MovieContainer;
+export default WatchLaterContainer;
 // checkBoxChange
 // https://picsum.photos/175/250
