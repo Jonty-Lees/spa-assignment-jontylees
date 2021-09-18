@@ -14,9 +14,6 @@ export default function App() {
   const [movie, setMovie] = useState([]);
   const [favMovie, setFavMovie] = useState([]);
 
-  console.log(movie);
-  console.log(favMovie);
-
   // ONLY UNCOMMENT BELOW LINE IF YOU WANT TO RESET THE LOCALSTORAGE (ONLY USED FOR TEST)
   // localStorage.removeItem("tasty-tv-app");
 
