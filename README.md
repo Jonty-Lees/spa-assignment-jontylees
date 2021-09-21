@@ -27,7 +27,8 @@ To see a more graphically detailed version, please look at my [MIRO](https://mir
 The user stories helped shape my design and gave me achivable goals to complete.
 These are prioritised with what I would look at first and then would work out how/if I would try to comlete it in this iteration.
 
-![User Stories]()
+![User Stories](![UserStories](https://user-images.githubusercontent.com/86611109/134203581-6f94a266-1341-441c-8f4a-7440f044959d.png)
+)
 
 ---
 
