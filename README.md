@@ -68,15 +68,24 @@ I really enjoyed being slowly figuring out how to use html commands within React
               />
 ```
 
+understanding how to use the react icons dependenceis and have access to icons was fun!
+
 I enjoyed using the onMouseEnter/Leave to change the hover state & prioritising the hover over watchLater.
 
 I have been really struggling with the watched checkbox and the Delete Watched function. I had set it up with my previous design in a way that when you clicked 'watched', the check box is checked and the state props go from 'watched: false' to 'watched: true' and can toggle back and forth. Then the Delete Watched function .map through the props and returned those that were 'false', see below
 
 ```
-
+function deleteWatchedMovies(id) {
+    setFavMovie((previousMovies) => {
+      return previousMovies.filter((favMovieItem, index) => {
+        if (favMovieItem.watched === false) return index !== id;
+      });
+    });
+  }
 ```
 
-The **Footer** was fairly simple to mirror the header. I embeded the social links as it was the cleanest and easiest way to do it
+As I said, this worked when one row. when I introduced the second row,'Your Watch Later List', this no longer toggled **unless** I refreshed the page, then it would work as expected. I have, to the point of writing this, beem unable to figure out why.
+I have poured in hours of looking at documentation, other examples and previous lectures and cannot figure out how to fix the bug.
 
 ---
 
@@ -86,14 +95,12 @@ For the Future Here are somethings I would like to add and figure out
 
 ---
 
-- Carousel
-  I would like to add a carousel to the movie and tvshow showcase. I think it would stand out and hit one of my goals from the user Stories.
-  The reason I didnt this time was because I wanted to priorise getting the essentials done and although the carousel would look
-  great, it was not aboslutly nesserarily for this iteration.
+- Full button functionality
+  As I changed the design faily late in the day, it meant the otion for a full reshuffle felt more overwhelming and not doable in the time frame. having every button work like it is meant to is a must!
 
-- Remind Me button
-  I would like to add a button that the user can click next to the live streaming programs that would remind the user before the show
-  airs
+- using the searchbar to call and external API like OMDB API to populate the list and give a wider array of movies to add to the watch later list
 
-- Login and logout
-  I know this needs backend, but would love to explore the different features of login and logout and how I can use it in certain features of the site
+- Edit Order function
+  I would like to add the option to edit the order of your watch later list. If I hadnt have had such a struggle, It was going to be a feature i wanted to implement but unfortunatly had to display: none it untill I can have time to implement it.
+
+  - I would like to add a proper login feature
