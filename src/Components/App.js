@@ -143,7 +143,7 @@ export default function App() {
         })}
       </div>
       ;
-      {movie.map((movieItem) => {
+      {favMovie.map((movieItem) => {
         return (
           <Buttons
             key={movieItem.id}
