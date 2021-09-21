@@ -1,7 +1,7 @@
 # Tasty Tv SPA
 
 This website is hosted through Netlify at this link:
-https://csb-7s93l.netlify.app/
+https://csb-m9shq.netlify.app/
 
 In this project for Tasty TV, I wanted to create an easy and simplistic watch later list, using the tasty TV movie base API people could look through the titles and simply add movies to their list.
 Once added to the water later list, users had access to a watch button, a rating system, a movie delte button and could also delete all the watched and entire list.
