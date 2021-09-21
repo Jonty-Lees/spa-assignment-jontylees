@@ -124,7 +124,7 @@ export default function App() {
           );
         })}
       </div>
-      <h2 className="h2Title">Your Watch Later List</h2>
+      <h2 className="h2Title">Watch Later List</h2>
       <div className="movieContainerBox">
         {favMovie.map((favMovieItem, index) => {
           return (
