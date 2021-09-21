@@ -142,7 +142,7 @@ export default function App() {
           );
         })}
       </div>
-      ;
+
       {favMovie.map((movieItem) => {
         return (
           <Buttons
