@@ -36,7 +36,8 @@ These are prioritised with what I would look at first and then would work out ho
 The Wireframing helped get a clear idea and picture of the UI design of the site. Using inspiration from the
 user storie, I tried to create something that was easy to use and fit the needs of Tasty TV.
 
-![Watch Later Page](/ReadMe-img/wfhome.png)
+![Watch Later Page](![Wire Frame](https://user-images.githubusercontent.com/86611109/134202971-01159548-6c36-4084-a1f6-cbace25a7c16.png)
+)
 
 ---
 
