@@ -42,7 +42,7 @@ user storie, I tried to create something that was easy to use and fit the needs 
 
 ---
 
-## development process and problem-solving strategy
+## Development process and problem-solving strategy
 
 I had originaly started with a slightly different design, instead of ther being two rows, where one is add too from the other. I had planned to have one row, which was populated by the client api, where the user could search in the search bar and add movies.
 after implmenting a lot of this, I had a chat to lectuer who didnt believe it to be very practical, so went about changing it and then hit into problems that I hadnt faced.
