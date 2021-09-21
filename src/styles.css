@@ -88,14 +88,14 @@ form input {
   resize: none;
   background-color: white;
 }
+.h2Title {
+  text-align: center;
+  margin-top: 10px;
+}
 .checkbox {
   margin-left: 10px;
 }
 
-.h2Title {
-  text-align: center;
-  margin-top: 20px;
-}
 footer {
   position: absolute;
   text-align: center;
@@ -160,7 +160,7 @@ footer {
 }
 
 .page-buttons {
-  position: relative;
+  position: absolute;
   text-align: center;
   bottom: 0;
   margin: 8rem 0rem;
