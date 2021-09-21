@@ -8,7 +8,7 @@ Once added to the water later list, users had access to a watch button, a rating
 
 ---
 
-##Technologies
+## Technologies
 
 1. html
 2. css
@@ -27,8 +27,8 @@ To see a more graphically detailed version, please look at my [MIRO](https://mir
 The user stories helped shape my design and gave me achivable goals to complete.
 These are prioritised with what I would look at first and then would work out how/if I would try to comlete it in this iteration.
 
-![User Stories](![UserStories](https://user-images.githubusercontent.com/86611109/134203581-6f94a266-1341-441c-8f4a-7440f044959d.png)
-)
+![UserStories](https://user-images.githubusercontent.com/86611109/134204104-7f94965d-d9e0-4781-8151-32ed3af5d515.png)
+
 
 ---
 
@@ -37,12 +37,12 @@ These are prioritised with what I would look at first and then would work out ho
 The Wireframing helped get a clear idea and picture of the UI design of the site. Using inspiration from the
 user storie, I tried to create something that was easy to use and fit the needs of Tasty TV.
 
-![Watch Later Page](![Wire Frame](https://user-images.githubusercontent.com/86611109/134202971-01159548-6c36-4084-a1f6-cbace25a7c16.png)
-)
+![Wire Frame](https://user-images.githubusercontent.com/86611109/134204120-b95155fe-534b-40d5-a4ac-76fb4d0cced8.png)
+
 
 ---
 
-##development process and problem-solving strategy
+## development process and problem-solving strategy
 
 I had originaly started with a slightly different design, instead of ther being two rows, where one is add too from the other. I had planned to have one row, which was populated by the client api, where the user could search in the search bar and add movies.
 after implmenting a lot of this, I had a chat to lectuer who didnt believe it to be very practical, so went about changing it and then hit into problems that I hadnt faced.
@@ -91,7 +91,7 @@ I have poured in hours of looking at documentation, other examples and previous 
 
 ---
 
-## Futer Iterations and Unsolved Problems
+## Future Iterations and Unsolved Problems
 
 For the Future Here are somethings I would like to add and figure out
 
