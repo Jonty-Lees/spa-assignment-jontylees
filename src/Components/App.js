@@ -9,6 +9,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Buttons from "./Buttons";
 import uuid from "react-uuid";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 export default function App() {
   const [movie, setMovie] = useState([]);
@@ -16,6 +17,8 @@ export default function App() {
 
   // ONLY UNCOMMENT BELOW LINE IF YOU WANT TO RESET THE LOCALSTORAGE (ONLY USED FOR TEST)
   // localStorage.removeItem("tasty-tv-app");
+
+  // USEEFFECT TO STORE TO LOCAL STORAGE
 
   useEffect(() => {
     const data = localStorage.getItem("tasty-tv-app");
@@ -27,6 +30,8 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("tasty-tv-app", JSON.stringify(favMovie));
   });
+
+  // CALL THE CLIENT API
 
   const clientAPI = async () => {
     const url = "https://hub.dummyapis.com/vj/wzGUkpZ";
@@ -41,7 +46,11 @@ export default function App() {
     clientAPI();
   }, []);
 
+  // TO CREATE A UNIQUE ID IF NEEDED
+
   const ID = uuid();
+
+  // ADDING MOVIES
 
   function addMovies(newMovie) {
     setMovie((previousMovies) => {
@@ -49,10 +58,14 @@ export default function App() {
     });
   }
 
+  // ADDING TO WATCH LIST
+
   const addFavMovie = (movie) => {
     const favouriteList = [...favMovie, movie];
     setFavMovie(favouriteList);
   };
+
+  // DELETING MOVIES FROM WATCH LIST
 
   function deleteMovie(id) {
     setFavMovie((previousMovies) => {
@@ -62,9 +75,13 @@ export default function App() {
     });
   }
 
+  // DELETEING ALL MOVIES FROM WATCH LIST
+
   function deleteAllMovies() {
     setFavMovie([]);
   }
+
+  // FUNCTION FOR THE CHECKBOX TO CONTROL THE STATE OF WATCHED
 
   function watchedComplete(id) {
     const updatedList = [...favMovie].map((favMovieItem, index) => {
@@ -75,12 +92,13 @@ export default function App() {
         } else {
           favMovieItem.watched = true;
         }
-        console.log(favMovieItem.watched);
       }
       return favMovieItem;
     });
     setFavMovie(updatedList);
   }
+
+  // FUNCTION TO DELETE ALL WATCHED
 
   function deleteWatchedMovies(id) {
     setFavMovie((previousMovies) => {
@@ -90,18 +108,6 @@ export default function App() {
     });
   }
 
-  // useEffect(
-  //   (props) => {
-  //     const updatedList = [...movies].map((favMovieItem) => {
-  //       if (id === favMovieItem.id) {
-  //         return movie.id !== id;
-  //       }
-  //       return updatedList;
-  //     });
-  //     setMovie(updatedList);
-  //   },
-  //   [addFavMovie]
-  // );
   function setRating() {}
 
   return (
@@ -119,7 +125,6 @@ export default function App() {
               img={movieItem.bannerUrl}
               onKeyID={movieItem.id}
               onFavourite={addFavMovie}
-              // onRating={setRating}
             />
           );
         })}
@@ -157,18 +162,6 @@ export default function App() {
     </div>
   );
 }
-
-// Add- done
-
-// Delete - done
-
-// Delete All -done
-
-// Edit
-
-//  Watched
-
-// Delete Watched
 
 // My Approch...
 //  Create UserStories and WireFrame

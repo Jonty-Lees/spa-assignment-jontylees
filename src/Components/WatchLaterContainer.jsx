@@ -37,8 +37,6 @@ function WatchLaterContainer(props) {
         {[...Array(5)].map((star, i) => {
           const ratingValue = i + 1;
 
-          console.log(ratingValue);
-
           return (
             <label className="starRatingContainer">
               <input
