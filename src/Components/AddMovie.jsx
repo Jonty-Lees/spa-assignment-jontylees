@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import uuid from "react-uuid";
 
 function AddMovie(props) {
-  const [movie, setMovie] = useState({
+  const [favMovie, setFavMovie] = useState({
     name: "",
     watched: false,
     bannerUrl: "",
@@ -10,8 +10,8 @@ function AddMovie(props) {
   });
 
   function submitMovie(e) {
-    props.onAdd(movie);
-    setMovie({
+    props.onAdd(favMovie);
+    setFavMovie({
       name: "",
       watched: false,
       bannerUrl: "",
@@ -22,7 +22,7 @@ function AddMovie(props) {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setMovie((previousMovies) => {
+    setFavMovie((previousMovies) => {
       return { ...previousMovies, [name]: value };
     });
   }
@@ -32,8 +32,8 @@ function AddMovie(props) {
       <form>
         <input
           name="name"
-          value={movie.name}
-          watched={movie.watched}
+          value={favMovie.name}
+          watched={favMovie.watched}
           onChange={handleChange}
           placeholder="Add To Watch List..."
         />

@@ -67,9 +67,15 @@ export default function App() {
   }
 
   function watchedComplete(id) {
-    const updatedList = [...movie].map((favMovieItem, index) => {
+    const updatedList = [...favMovie].map((favMovieItem, index) => {
       if (id === favMovieItem.id) {
-        favMovieItem.watched = !favMovieItem.watched;
+        // favMovieItem.watched = !favMovieItem.watched;
+        if (favMovieItem.watched === true) {
+          favMovieItem.watched = false;
+        } else {
+          favMovieItem.watched = true;
+        }
+        console.log(favMovieItem.watched);
       }
       return favMovieItem;
     });
@@ -96,12 +102,13 @@ export default function App() {
   //   },
   //   [addFavMovie]
   // );
+  function setRating() {}
 
   return (
     <div className="App">
       <Header />
       <AddMovie onAdd={addMovies} />
-      <h2>Search Here</h2>
+      <h2 className="h2Title">Search Here</h2>
       <div className="movieContainerBox">
         {movie.map((movieItem, index) => {
           return (
@@ -117,7 +124,7 @@ export default function App() {
           );
         })}
       </div>
-      <h2>Your Watch Later List</h2>
+      <h2 className="h2Title">Your Watch Later List</h2>
       <div className="movieContainerBox">
         {favMovie.map((favMovieItem, index) => {
           return (
@@ -130,7 +137,7 @@ export default function App() {
               onWatched={watchedComplete}
               watched={favMovieItem.watched}
               onKeyID={favMovieItem.id}
-              // onRating={setRating}
+              onRating={setRating}
             />
           );
         })}

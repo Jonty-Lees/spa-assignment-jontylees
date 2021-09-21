@@ -58,6 +58,7 @@ form {
   padding: 15px;
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
+  display: none;
 }
 form button {
   position: absolute;
@@ -91,6 +92,10 @@ form input {
   margin-left: 10px;
 }
 
+.h2Title {
+  text-align: center;
+  margin-top: 20px;
+}
 footer {
   position: absolute;
   text-align: center;
@@ -155,7 +160,7 @@ footer {
 }
 
 .page-buttons {
-  position: absolute;
+  position: relative;
   text-align: center;
   bottom: 0;
   margin: 8rem 0rem;

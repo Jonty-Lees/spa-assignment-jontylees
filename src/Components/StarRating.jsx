@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 
 const StarRating = (props) => {
   const [movie, setMovie] = useState({});
   const [hover, setHover] = useState(null);
+
+  useEffect(() => {
+    const data = localStorage.getItem("tasty-tv-app-rating");
+    if (data) {
+      setMovie(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasty-tv-app-rating", JSON.stringify(movie));
+  });
 
   return (
     <div className="starRatingContainer">
